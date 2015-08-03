@@ -2,7 +2,7 @@
 
 Data visualisation of next 20 years of Ramadhan in cities around the world
 
-![London]('/infographics/London.jpg')
+![London](infographics/London.jpg)
 
 ### Usage
 
