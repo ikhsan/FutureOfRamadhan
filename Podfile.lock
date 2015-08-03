@@ -1,0 +1,10 @@
+PODS:
+  - BAPrayerTimes (1.4.1)
+
+DEPENDENCIES:
+  - BAPrayerTimes
+
+SPEC CHECKSUMS:
+  BAPrayerTimes: bfabaf098b78955849d5a43c04efe37b9429b4bf
+
+COCOAPODS: 0.38.0.beta.1
