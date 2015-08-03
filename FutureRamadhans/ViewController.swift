@@ -5,7 +5,7 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
     // MARK: variables for visualization
     // jakarta, mecca, tokyo, london, wellington, reykjavik, stockholm
-    let city = "Cape Town"
+    let city = "London"
     let years = 25
 
     
