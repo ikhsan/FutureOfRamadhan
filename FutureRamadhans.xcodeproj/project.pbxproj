@@ -13,6 +13,9 @@
 		4615346E1B573FD800B0A17A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4615346D1B573FD800B0A17A /* Assets.xcassets */; };
 		461534711B573FD800B0A17A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4615346F1B573FD800B0A17A /* LaunchScreen.storyboard */; };
 		461534791B57425A00B0A17A /* DataCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461534781B57425A00B0A17A /* DataCollection.swift */; };
+		46C91B331B6F67640014540A /* NSDate+RamadhanDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C91B321B6F67640014540A /* NSDate+RamadhanDays.swift */; };
+		46C91B351B6F68D30014540A /* UICollectionView+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C91B341B6F68D30014540A /* UICollectionView+Snapshot.swift */; };
+		46C91B371B6F68E60014540A /* UIImage+Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C91B361B6F68E60014540A /* UIImage+Saving.swift */; };
 		46CE2AF21B6D8364007660A0 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE2AF11B6D8364007660A0 /* SummaryCell.swift */; };
 		46CE2AF41B6D8394007660A0 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE2AF31B6D8394007660A0 /* HeaderCell.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +29,9 @@
 		461534701B573FD800B0A17A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		461534721B573FD800B0A17A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		461534781B57425A00B0A17A /* DataCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCollection.swift; sourceTree = "<group>"; };
+		46C91B321B6F67640014540A /* NSDate+RamadhanDays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+RamadhanDays.swift"; sourceTree = "<group>"; };
+		46C91B341B6F68D30014540A /* UICollectionView+Snapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Snapshot.swift"; sourceTree = "<group>"; };
+		46C91B361B6F68E60014540A /* UIImage+Saving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Saving.swift"; sourceTree = "<group>"; };
 		46CE2AF11B6D8364007660A0 /* SummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
 		46CE2AF31B6D8394007660A0 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		9160F438EEBA4E778FA8F2FE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,16 +80,35 @@
 		461534651B573FD800B0A17A /* FutureRamadhans */ = {
 			isa = PBXGroup;
 			children = (
+				46C91B301B6F671C0014540A /* Data Collection */,
+				46C91B311B6F67250014540A /* Data VIsualisation */,
 				461534661B573FD800B0A17A /* AppDelegate.swift */,
-				461534781B57425A00B0A17A /* DataCollection.swift */,
-				461534681B573FD800B0A17A /* ViewController.swift */,
-				46CE2AF31B6D8394007660A0 /* HeaderCell.swift */,
-				46CE2AF11B6D8364007660A0 /* SummaryCell.swift */,
 				4615346D1B573FD800B0A17A /* Assets.xcassets */,
 				4615346F1B573FD800B0A17A /* LaunchScreen.storyboard */,
 				461534721B573FD800B0A17A /* Info.plist */,
 			);
 			path = FutureRamadhans;
+			sourceTree = "<group>";
+		};
+		46C91B301B6F671C0014540A /* Data Collection */ = {
+			isa = PBXGroup;
+			children = (
+				461534781B57425A00B0A17A /* DataCollection.swift */,
+				46C91B321B6F67640014540A /* NSDate+RamadhanDays.swift */,
+			);
+			name = "Data Collection";
+			sourceTree = "<group>";
+		};
+		46C91B311B6F67250014540A /* Data VIsualisation */ = {
+			isa = PBXGroup;
+			children = (
+				461534681B573FD800B0A17A /* ViewController.swift */,
+				46C91B361B6F68E60014540A /* UIImage+Saving.swift */,
+				46C91B341B6F68D30014540A /* UICollectionView+Snapshot.swift */,
+				46CE2AF31B6D8394007660A0 /* HeaderCell.swift */,
+				46CE2AF11B6D8364007660A0 /* SummaryCell.swift */,
+			);
+			name = "Data VIsualisation";
 			sourceTree = "<group>";
 		};
 		8A54DE009DC9C09C4FB5957E /* Frameworks */ = {
@@ -217,8 +242,11 @@
 				461534791B57425A00B0A17A /* DataCollection.swift in Sources */,
 				46CE2AF41B6D8394007660A0 /* HeaderCell.swift in Sources */,
 				461534691B573FD800B0A17A /* ViewController.swift in Sources */,
+				46C91B371B6F68E60014540A /* UIImage+Saving.swift in Sources */,
 				46CE2AF21B6D8364007660A0 /* SummaryCell.swift in Sources */,
 				461534671B573FD800B0A17A /* AppDelegate.swift in Sources */,
+				46C91B331B6F67640014540A /* NSDate+RamadhanDays.swift in Sources */,
+				46C91B351B6F68D30014540A /* UICollectionView+Snapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

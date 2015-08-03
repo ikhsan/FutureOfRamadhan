@@ -4,10 +4,9 @@ import UIKit
 class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     // MARK: variables for visualization
-    // jakarta, mecca, tokyo, london, wellington, reykjavik, stockholm
+    // change city and years
     let city = "London"
     let years = 25
-
     
     let cellIdentifier = "TheCell"
     let headerIdentifier = "HeaderCell"
@@ -48,33 +47,36 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
 }
 
 // MARK: Actions
+
 extension ViewController {
-    
+
+    func configureRamadhanSummaries() {
+        RamadhanSummary.summariesForCity(city, initialYear: 1437, durationInYears: years) { summaries in
+
+            self.summaries = summaries
+            self.durationRange = (
+                summaries.map { $0.duration }.reduce(24.0) { min($0, $1) },
+                19.0
+            )
+
+            self.collectionView?.reloadData()
+        }
+    }
+
     func saveInfographicToImage() {
         guard let collectionView = collectionView else {
             return
         }
         
-        let screenshot = collectionView.rmdn_convertToImage()
-        let imagePath = screenshot.rmdn_saveImageWithName(city)
+        let snapshot = collectionView.rmdn_takeSnapshot()
+        let imagePath = snapshot.rmdn_saveImageWithName(city)
+
         print("open '\(imagePath)'")
-    }
-    
-    func configureRamadhanSummaries() {
-        createRamadhanSummariesForCity(city, initialYear: 1437, durationInYears: years) { summaries in
-            self.summaries = summaries
-            
-            self.durationRange = (
-                summaries.map { $0.duration }.reduce(24.0) { min($0, $1) },
-                19.0
-            )
-            
-            self.collectionView?.reloadData()
-        }
     }
 }
 
 // MARK: Cells
+
 extension ViewController {
     
     func configureDefaultCells() {
@@ -98,6 +100,7 @@ extension ViewController {
 }
 
 // MARK: Header
+
 extension ViewController {
     
     func configureTitleHeaderCell() {
@@ -119,43 +122,5 @@ extension ViewController {
         
         return UICollectionReusableView()
     }
-}
-
-// MARK: Helpers
-
-extension UIImage {
-    
-    func rmdn_saveImageWithName(city: String) -> String {
-        guard let documentPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).first,
-            let image = UIImagePNGRepresentation(self) else {
-                return ""
-        }
-        
-        let filepath = documentPath.stringByAppendingPathComponent("\(city).png")
-        let success = image.writeToFile(filepath, atomically: true)
-        return success ? filepath : ""
-    }
-    
-}
-
-extension UICollectionView {
-    
-    func rmdn_convertToImage() -> UIImage {
-        let oldFrame = self.frame
-        
-        var frame = self.frame
-        frame.size.height = self.contentSize.height
-        self.frame = frame
-        
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, 0)
-        self.layer.renderInContext(UIGraphicsGetCurrentContext())
-        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        self.frame = oldFrame
-        
-        return screenshot
-    }
-    
 }
 
