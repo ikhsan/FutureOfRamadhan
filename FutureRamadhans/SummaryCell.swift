@@ -125,18 +125,19 @@ class SummaryCell: UICollectionViewCell {
 }
 
 extension UIColor {
-    
-    class func colorForDuration(duration: Double, range: (Double, Double)) -> UIColor {
-        let min = range.0
-        let max = range.1
+    class func colorForDuration(duration: Double, range: (min: Double, max: Double)) -> UIColor {
         let minColor: (Double, Double, Double) = (46, 204, 113)
         let maxColor: (Double, Double, Double) = (243, 156, 18)
-        
-        let r = minColor.0 + ((maxColor.0 - minColor.0) * ((duration - min) / (max - min)))
-        let g = minColor.1 + ((maxColor.1 - minColor.1) * ((duration - min) / (max - min)))
-        let b = minColor.2 + ((maxColor.2 - minColor.2) * ((duration - min) / (max - min)))
-        
-        let rgb = (Float(r), Float(g), Float(b))
-        return UIColor(colorLiteralRed:rgb.0 / 255.0, green: rgb.1 / 255.0, blue: rgb.2 / 255.0, alpha: 1.0 )
+
+        let r = minColor.0 + ((maxColor.0 - minColor.0) * ((duration - range.min) / (range.max - range.min)))
+        let g = minColor.1 + ((maxColor.1 - minColor.1) * ((duration - range.min) / (range.max - range.min)))
+        let b = minColor.2 + ((maxColor.2 - minColor.2) * ((duration - range.min) / (range.max - range.min)))
+
+        return UIColor(
+            colorLiteralRed: Float(r / 255.0),
+            green: Float(g / 255.0),
+            blue: Float(b / 255.0),
+            alpha: 1.0
+        )
     }
 }
